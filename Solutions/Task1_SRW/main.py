@@ -3,7 +3,7 @@
 #Copyleft Arvind Ravichandran
 #Mon Mar 27 10:34:43 CEST 2017
 #main.py
-#Description:
+#Description: main file for Task 1: Simple Random Walk
  
 import numpy as np
 from modules import PlotRandomWalk1D, HistogramAllSteps, HistogramEndPoints

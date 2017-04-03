@@ -2,8 +2,8 @@
  
 #Copyleft Arvind Ravichandran
 #Thu Mar 23 12:29:58 CET 2017
-#random.py
-#Description:
+#modules.py
+#Description: Modular functions for Task 2
 
 import numpy as np
 import pandas as pd

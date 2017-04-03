@@ -3,7 +3,7 @@
 #Copyleft Arvind Ravichandran
 #Mon Mar 27 10:34:43 CEST 2017
 #main.py
-#Description: main file for Simple and Biased Random Walks
+#Description: main file for Simple Random Walks
  
 import numpy as np
 from modules import PlotRandomWalk1D, HistogramAllSteps, HistogramEndPoints

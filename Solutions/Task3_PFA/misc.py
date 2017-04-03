@@ -3,25 +3,25 @@
 #Copyleft Arvind Ravichandran
 #Sat Mar 25 00:41:41 CET 2017
 #misc.py
-#Description: Problem version of modular functions for Task 3
+#Description: Contains miscellaneous and modular functions for Task 3
 
 import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import constants as sim
+from itertools import izip
 import time
 
 # Returns the center of bins
 def center(arr):
     return (arr[:-1]+arr[1:])/2.
 
-# 2D histogram
 def hist2D(x1t, x2t):
     counts, xbins, ybinx, image = plt.hist2d(x1t,x2t,bins=15)
     plt.axes().set_aspect('equal', 'datalim')
     plt.show()
 
-# Plots the flux arrows
 def flux_arrows(ax, flux, xc, yc):
     
     # Get center of cells in grid
@@ -29,14 +29,17 @@ def flux_arrows(ax, flux, xc, yc):
 
     # normalise flux with total flux in either direction
     flux_norm = np.divide(flux,np.abs(flux).sum(axis=(0,1)),dtype=float)*2.0
+    #flux_norm = flux
+
     ax.quiver( X, Y, flux_norm[:,:,1], flux_norm[:,:,0], scale=1, scale_units="inches", linewidths=(0.5,), headaxislength=5)
+
+    #plt.axes().set_aspect('equal', 'datalim')
 
     plt.axis("equal")
     plt.xlim([-0.3,0.3])
     plt.ylim([-0.3,0.3])
     plt.show()
 
-# helper function for pfa
 def determine_case(d1,d2):
     if d1==1 and d2==0:
         return 'up'
@@ -71,10 +74,10 @@ def pfa(fig,ax, x1t, x2t):
     # calculate flux (last time step has no flux)
     diff = np.diff(digg,axis=0)
 
-    # loop over all the time steps except last one
-    for ti in range(steps-1):
-        i,j = digg[ti]
-        d1,d2 = diff[ti]
+    
+    t1 = time.time()
+    # This is just a fancy loop over all the time steps
+    for (i,j),(d1,d2) in izip(digg[:-1],diff):
 
         # up
         if d1==1 and d2==0:
@@ -96,44 +99,16 @@ def pfa(fig,ax, x1t, x2t):
             flux[ i, j, 1]  -=1;
             flux[ i, j-1, 1]-=1;
 
+    print np.max(flux)
+    # adjacent box corrections
+    # flux_correction(flux)
+
+    # plot the flux arrows appropriately
+    #flux_arrows(ax,flux,center(xbins),center(ybins))
+
     return ax, flux, center(xbins), center(ybins)
 
-# plot the trajectory
-def PlotXvsT(x1t, x2t):
-    f, axarr = plt.subplots(2, sharex=True)
-
-    axarr[0].set_title('Trajectory of beads')
-    axarr[0].plot(x1t,c='b')
-    axarr[0].set_ylabel(r'$x_1$')
-
-    axarr[1].plot(x2t,c='g')
-    axarr[1].set_ylabel(r'$x_2$')
-    axarr[1].set_xlabel('time')
-
-def HistXi(x1t, x2t, bins=30):
-    f, axarr = plt.subplots(2, sharex=True)
-    axarr[0].set_title('Histogram of '+ r'$x_i$')
-    axarr[0].hist(x1t,bins=bins,color='b',normed=True)
-    axarr[0].set_ylabel(r'$P(x_1)$')
-
-    axarr[1].hist(x2t,bins=bins,color='g',normed=True)
-    axarr[1].set_ylabel(r'$P(x_2)$')
-    axarr[1].set_xlabel(r'$x _{i}$')
-
-    print "Mean of x1: ", np.mean(x1t)
-    print "Mean of x2: ", np.mean(x2t)
-
-    print "Standard Deviation of x1: ", np.std(x1t)
-    print "Standard Deviation of x2: ", np.std(x2t)
-
-def HistCOM(x1t, x2t, bins=30):
-    f, ax = plt.subplots(1,1)
-    ax.set_title('Histogram of '+ r'$x_{com}$')
-
-    xmean = (x1t+x2t)/2
-    ax.hist(xmean,bins=bins,color='b',normed=True)
-    ax.set_ylabel(r'$P(x_{com})$')
-    ax.set_xlabel(r'$x _{com}$')
-
-    print "Mean of COM: ", np.mean(xmean)
-    print "Standard Deviation of COM: ", np.std(xmean)
+def plot_traj(x1t, x2t):
+    plt.plot(x1t)
+    plt.plot(x2t)
+    plt.show()

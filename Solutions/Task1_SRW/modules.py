@@ -2,8 +2,8 @@
  
 #Copyleft Arvind Ravichandran
 #Thu Mar 23 12:29:58 CET 2017
-#random.py
-#Description:
+#modules.py
+#Description: Contains the modular functions for Task 1
 
 import numpy as np
 import matplotlib.pyplot as plt
