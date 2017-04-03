@@ -37,17 +37,5 @@ def task1():
 
     plt.show()
 
-def task2()
-    """ Task 2: Biassed Random Walk """
-
-    # (1A): Compute MSD of 2-D random walk 
-    MSD(0.5)
-
-    # (1B): Compute MSD of biassed 2-D random walk 
-
-
-
-
 if __name__=="__main__":
-    # task1()
-    # task2()
+    task1()
