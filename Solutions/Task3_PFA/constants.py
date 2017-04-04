@@ -8,7 +8,7 @@
 import numpy as np
 
 # General Simulation Parameters
-steps = int(1e7)                    # length of simulation
+steps = int(1e5)                    # length of simulation
 ensemble = 1                       # size of ensemble
 
 # System Parameters

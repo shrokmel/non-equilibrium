@@ -6,7 +6,7 @@
 #Description: Solution file. Time loop for Task 3
 
 import matplotlib as mpl
-mpl.use('Agg')
+#mpl.use('Agg')
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -37,6 +37,7 @@ def main():
 
             x1t[ti]=x1
             x2t[ti]=x2
+
         ax, flux, xc, yc = misc.pfa(fig, ax, x1t,x2t)
         flux_total.append(flux)
 
@@ -46,7 +47,7 @@ def main():
         flux_average += f
 
     flux_average = flux_average/sim.ensemble
-    #misc.flux_arrows(ax,flux_average,xc,yc)
+    misc.flux_arrows(ax,flux_average,xc,yc)
 
 if __name__ == "__main__":
     main();

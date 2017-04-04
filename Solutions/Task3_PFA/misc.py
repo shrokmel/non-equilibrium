@@ -6,12 +6,11 @@
 #Description: Contains miscellaneous and modular functions for Task 3
 
 import matplotlib as mpl
-mpl.use('Agg')
+#mpl.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import constants as sim
 from itertools import izip
-import time
 
 # Returns the center of bins
 def center(arr):
@@ -34,7 +33,6 @@ def flux_arrows(ax, flux, xc, yc):
     ax.quiver( X, Y, flux_norm[:,:,1], flux_norm[:,:,0], scale=1, scale_units="inches", linewidths=(0.5,), headaxislength=5)
 
     #plt.axes().set_aspect('equal', 'datalim')
-
     plt.axis("equal")
     plt.xlim([-0.3,0.3])
     plt.ylim([-0.3,0.3])
@@ -60,6 +58,9 @@ def pfa(fig,ax, x1t, x2t):
     # First index refers to x1t (xbins)
     counts, xbins, ybins, image = ax.hist2d(x1t,x2t,bins=[xbins,ybins])
 
+    plt.hist2d(x1t,x2t,bins=[xbins,ybins],cmap=mpl.cm.jet)
+    plt.colorbar()
+
     # initialize fluxes
     flux = np.zeros((counts.shape[0],counts.shape[1],2))
     fluxt = np.zeros((counts.shape[0],counts.shape[1],2))
@@ -74,8 +75,6 @@ def pfa(fig,ax, x1t, x2t):
     # calculate flux (last time step has no flux)
     diff = np.diff(digg,axis=0)
 
-    
-    t1 = time.time()
     # This is just a fancy loop over all the time steps
     for (i,j),(d1,d2) in izip(digg[:-1],diff):
 
@@ -98,10 +97,6 @@ def pfa(fig,ax, x1t, x2t):
         elif d1==0 and d2==-1:
             flux[ i, j, 1]  -=1;
             flux[ i, j-1, 1]-=1;
-
-    print np.max(flux)
-    # adjacent box corrections
-    # flux_correction(flux)
 
     # plot the flux arrows appropriately
     #flux_arrows(ax,flux,center(xbins),center(ybins))
