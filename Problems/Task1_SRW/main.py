@@ -14,7 +14,7 @@ def task1():
     """ Task 1: Simple Random Walk """
 
     # (1A): 1-D Random Walk X vs.t
-    #PlotRandomWalk1D(10000)
+    PlotRandomWalk1D(10000)
 
     # (1B): Histogram the positions of single SRW
     #HistogramAllSteps(N=10000)

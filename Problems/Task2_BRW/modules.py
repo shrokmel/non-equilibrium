@@ -128,7 +128,7 @@ def MSD(N=10000, d=2, p=0.5):
     for i, shift in enumerate(shifts):
         diffs = xy[:-shift if shift else None] - xy[shift:]     # diffs wrt lag time
         sqdist = np.square(diffs).sum(axis=1)                   # squared differences
-        msds[i] = ???                                           # WHAT TO DO HERE
+        msds[i] = "???"                                         # WHAT TO DO HERE
         msds_std[i] = sqdist.std(ddof=1)                        # standard deviation 
                                                                 # of squared difference
 

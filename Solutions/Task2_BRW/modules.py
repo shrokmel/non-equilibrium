@@ -34,7 +34,7 @@ def PlotRandomWalk1D(N=100):
     Plot X(t) for one-dimensional random walk
     """
 
-    X = RandomWalk(N,d=1)
+    X = BiasedRandomWalk(N,d=1)
 
     plt.plot(X)
     plt.title('1-D Random Walker Trajectory')

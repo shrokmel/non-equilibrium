@@ -14,7 +14,7 @@ def RandomWalk(N=100, d=2):
     a 2D random walk of length N.  You might want to generate an array of
     shape (N,d), using (for example), random.uniform(min, max, shape).
     """
-    return ???
+    return "???"
 
 def PlotRandomWalk1D(N=100):
     """
@@ -49,7 +49,7 @@ def EndPoints(W=10000, N=10, d=2):
     or one can generate the steps and sum them directly, for example:
     sum(numpy.random.uniform(-0.5,0.5,(10,100,2))
     """
-    return ???
+    return "???"
 
 def PlotEndPoints(W=10000, N=10, d=2):
     """
@@ -66,7 +66,7 @@ def plotGaussian(N, bins):
     Plots rho = (1/(sqrt(2 pi) sigma)) exp(-x**2/(2 sigma**2))
     for -3 sigma < x < 3 sigma 
     '''
-    sigma = ???
+    sigma = "???"
     x = np.arange(-3*sigma,3*sigma,sigma/bins)
     rho = (1/(np.sqrt(2*np.pi)*sigma))*np.exp(-x**2/(2*sigma**2))
     plt.plot(x, rho, "k-")
@@ -76,7 +76,7 @@ def HistogramAllSteps(N=10, d=1, bins=50):
     Histograms all positions explored by one random walker 
     """    
     X = RandomWalk(N,d)
-    plt.hist(???, normed=1)
+    plt.hist("???", normed=1)
    
 def HistogramEndPoints(W=10000, N=10, d=1, bins=50):
     """
