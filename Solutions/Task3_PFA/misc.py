@@ -5,12 +5,9 @@
 #misc.py
 #Description: Contains miscellaneous and modular functions for Task 3
 
-import matplotlib as mpl
-#mpl.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import constants as sim
-from itertools import izip
 
 # Returns the center of bins
 def center(arr):
@@ -76,7 +73,7 @@ def pfa(fig,ax, x1t, x2t):
     diff = np.diff(digg,axis=0)
 
     # This is just a fancy loop over all the time steps
-    for (i,j),(d1,d2) in izip(digg[:-1],diff):
+    for (i,j),(d1,d2) in zip(digg[:-1],diff):
 
         # up
         if d1==1 and d2==0:

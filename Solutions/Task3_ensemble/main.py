@@ -5,8 +5,6 @@
 #main.py
 #Description:
 
-import matplotlib as mpl
-mpl.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import constants as sim
@@ -43,8 +41,8 @@ def main():
     flux_average = flux_average/sim.ensemble    # compute the average
 
     # plotting
-    #misc.hist2D( x1t, x2t, xbins, ybins)
-    #misc.flux_arrows(ax,flux_average,misc.center(xbins),misc.center(ybins))
+    misc.hist2D( x1t, x2t, xbins, ybins)
+    misc.flux_arrows(ax,flux_average,misc.center(xbins),misc.center(ybins))
 
 if __name__ == "__main__":
     main();

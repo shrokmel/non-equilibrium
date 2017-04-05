@@ -5,9 +5,6 @@
 #misc.py
 #Description: Contains functions not defined in main
 
-import matplotlib as mpl
-mpl.use('Agg')
-
 import matplotlib.pyplot as plt
 import numpy as np
 import constants as sim
