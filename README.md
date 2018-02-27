@@ -20,7 +20,7 @@ What is it?
 -----------
   
   This contains Python scripts to simulate illustrate concepts of non-equilibrium
-  for the Spring School 2017 course at ICS II. In this course, conducted as
+  for the Spring School 2017/2018 course at ICS II. In this course, conducted as
   a workshop, there are three instances of equilibrium and non-equilibrium 
   systems. 
   
