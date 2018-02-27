@@ -25,7 +25,7 @@ if __name__=="__main__":
     #HistogramEndPoints()
 
     # (3A): 2-D Random Walk X vs. Y
-    #PlotRandomWalk2D(1000)
+    PlotRandomWalk2D(1000)
 
     # (3B): Spread of end points in 2D
     #PlotEndPoints()
